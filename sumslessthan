@@ -1,0 +1,32 @@
+function [sum] = sumslessthan(x1,x2,m)
+
+% Finds how many sums there are of the form x1*k + x2*j < m for some k and
+% j.
+% Written by: Mario Perales
+% April 23, 2015
+
+a = max(x1,x2);
+b = min(x1,x2);
+x = ceil(m/a);
+y = ceil(m/b);
+i = 0;
+sum = 0;
+while(i < x)
+    j = 0;
+    while(j < y)
+        iter = a*i + b*j;
+        if(i ~= 0 && j == 0 && mod(iter,b) ~= 0 && iter < m);
+            sum = sum + 1;
+        end;
+        if(i == 0);
+            sum = sum + 1;
+        end;
+        if(i ~= 0 && j ~= 0 && mod(iter,a) ~= 0 && mod(iter,b) ~= 0 && iter < m);
+            sum = sum + 1;
+        end;
+        j = j + 1;
+    end;
+    i = i + 1;
+end;
+    
+    
