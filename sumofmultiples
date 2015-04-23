@@ -1,0 +1,12 @@
+function [sum] = sumofmultiples(a,b,m)
+
+% Calculates the sum of the multiples a or b less than m. %
+
+i = 0;
+sum = i;
+while i < m;
+    if(mod(i,a) == 0 || mod(i,b) == 0)
+        sum = sum + i;
+    end;
+    i = i + 1;
+end;
